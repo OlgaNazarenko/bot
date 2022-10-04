@@ -2,9 +2,9 @@
 CONTACTS: dict[str,int] = {}
 
 def input_error(handler):
-    def wrapper():
+    def wrapper(*args, **kwargs):
         try:
-            result = handler()
+            result = handler(*args, **kwargs)
         except KeyError as ke:
             print('You entered a wrong name that is not in the list. Please enter once again')
         except ValueError as ve:
