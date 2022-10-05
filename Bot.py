@@ -16,33 +16,30 @@ def input_error(handler):
 
 @input_error
 def hello_func():
-    print('How can I help you?')
+   return 'How can I help you?'
 
 @input_error
 def exit_func():
-    print('Good bye!')
-    exit()
+    return 'Good bye!'
+  
 
 @input_error
 def add_contact():
-    name = input('Enter your name: ')
-    phone = input('Enter your phone number:')
+    
     CONTACTS[name] = phone
-    print('The contact details have been added.')
+    return 'The contact details have been added.'
 
 @input_error
 def change_contact():
-    name = input('Enter your name: ')
-    old_phone = input('Please enter your old phone, which you would like to change:')
-    new_phone = input('Enter a new phone number:')
+    
     CONTACTS[name][old_phone] = new_phone
-    print(f'The phone number for {name} was changed from {old_phone} to {new_phone}. And it is updated in the main file.')
+    return f'The phone number for {name} was changed from {old_phone} to {new_phone}. And it is updated in the main file.'
 
 @input_error
 def show_all():
     # print('\n'.join(f'{CONTACTS[name]}{CONTACTS[phone]}'))
 
-    print('\n'.join([f'{phone}'for phone in CONTACTS.items()]))
+    return '\n'.join([f'{phone}'for phone in CONTACTS.items()])
 
 COMMANDS = {
     'hello': hello_func,
@@ -60,7 +57,11 @@ def main():
         if data not in COMMANDS:
             print('You entered an unknown command. Please enter the required command.')
             continue
-        COMMANDS[data]()
+        commands = '$(add_contact)' '$(change_contact)'
+        name = input('Enter your name: ')
+        phone = input('Enter your phone number:')
+        
+        COMMANDS[data](name, phone)
 
 
 
