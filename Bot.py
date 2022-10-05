@@ -57,9 +57,15 @@ def main():
         if data not in COMMANDS:
             print('You entered an unknown command. Please enter the required command.')
             continue
-        commands = '$(add_contact)' '$(change_contact)'
+       
+        COMMANDS[data]()
         
-        COMMANDS[data](name, phone)
+        command: str or int = input(f'Enter your name:' \
+                                f'Please enter phone number:')
+
+        args = command.split()
+        if command not in COMMANDS:
+            return COMMANDS[command](args)
 
 
 
