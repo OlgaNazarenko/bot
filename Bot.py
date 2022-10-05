@@ -58,8 +58,6 @@ def main():
             print('You entered an unknown command. Please enter the required command.')
             continue
         commands = '$(add_contact)' '$(change_contact)'
-        name = input('Enter your name: ')
-        phone = input('Enter your phone number:')
         
         COMMANDS[data](name, phone)
 
