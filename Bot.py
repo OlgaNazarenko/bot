@@ -4,14 +4,15 @@ CONTACTS: dict[str,int] = {}
 def input_error(handler):
     def wrapper(*args, **kwargs):
         try:
-            result = handler(*args, **kwargs)
+#             result = handler()
+              return handler(*args, **kwargs)
         except KeyError as ke:
             print('You entered a wrong name that is not in the list. Please enter once again')
         except ValueError as ve:
             print('You provided an invalid value to a function. Please enter once again')
         except IndexError as ie:
             print('You entered a wrong data. Please enter once again')
-    return wrapper
+    return wrapper 
 
 @input_error
 def hello_func():
