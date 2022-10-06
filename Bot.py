@@ -24,16 +24,13 @@ def exit_func():
   
 
 @input_error
-def add_contact():
-    
-    CONTACTS[name] = phone
-    return 'The contact details have been added.'
+def add_contact(*args, **kwargs):
+    return f'The contact details {name} {phone} have been added.'
 
 @input_error
 def change_contact():
-    
-    CONTACTS[name][old_phone] = new_phone
-    return f'The phone number for {name} was changed from {old_phone} to {new_phone}. And it is updated in the main file.'
+     return f'The {old_phone} was changed to {new_phone}.'\
+     f'And it is updated in the main file.'
 
 @input_error
 def show_all():
@@ -54,19 +51,10 @@ COMMANDS = {
 def main():
     while True:
         data: str = input('Enter command:')
+     
+        command, *args = data.split()
         if data not in COMMANDS:
-            print('You entered an unknown command. Please enter the required command.')
-            continue
-       
-        COMMANDS[data]()
-        
-        command: str or int = input(f'Enter your name:' \
-                                f'Please enter phone number:')
-
-        args = command.split()
-        if command not in COMMANDS:
             return COMMANDS[command](args)
-
 
 
 if __name__ == "__main__":
