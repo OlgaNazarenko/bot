@@ -53,7 +53,7 @@ def main():
         data: str = input('Enter command:')
      
         command, *args = data.split()
-        if data not in COMMANDS:
+        if command not in COMMANDS:
             return COMMANDS[command](args)
 
 
