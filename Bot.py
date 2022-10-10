@@ -46,8 +46,7 @@ def add_contact(name: str, phone: str) -> str:
 
 
         if CONTACTS.get(name):
-            raise ValueError("Контакт було додано вже раніше \n"
-                         "The contact details has already been added ")
+            raise ValueError("The contact details has already been added\n")
 
         CONTACTS.update({name: {"name": name, "phone": phone}})
 
