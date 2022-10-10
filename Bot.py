@@ -40,9 +40,7 @@ def add_contact(name: str, phone: str) -> str:
         pattern = r"(^380|0|80)\d{9}$"
         match = re.fullmatch(pattern, phone)
         if not match:
-            print("Invalid, please enter a valid phone number")
-        #     print("Valid")
-        # else:
+            return "Invalid, please enter a valid phone number"
 
 
         if CONTACTS.get(name):
