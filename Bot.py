@@ -64,15 +64,14 @@ def validate_phone(phone: str):
 @input_error
 def change_contact(name: str, old_phone: str, new_phone: str) -> str:
 
-    if phone:
+    if new_phone:
         pattern = r"(^380|0|80)\d{9}$"
-        match = re.fullmatch(pattern, phone)
+        match = re.fullmatch(pattern, new_phone)
         if match:
             print("Valid")
         else:
-            print("Invalid")
-    else:
-        print("Invalid")
+            raise ValueError("Invalid phone number")
+
 
     CONTACTS[name]['phone'] = new_phone
 
